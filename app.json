@@ -1,0 +1,69 @@
+{
+  "expo": {
+    "name": "Redoubt",
+    "slug": "redoubt-vault",
+    "version": "0.4.1",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "description": "Offline encrypted vault. No account, no cloud, no network.",
+    "ios": {
+      "bundleIdentifier": "com.lixing.redoubt",
+      "supportsTablet": false,
+      "deploymentTarget": "16.4",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "privacyManifests": {
+        "NSPrivacyTracking": false,
+        "NSPrivacyTrackingDomains": [],
+        "NSPrivacyCollectedDataTypes": [],
+        "NSPrivacyAccessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "CA92.1"
+            ]
+          },
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "0A2A.1",
+              "3B52.1",
+              "C617.1"
+            ]
+          },
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryDiskSpace",
+            "NSPrivacyAccessedAPITypeReasons": [
+              "E174.1",
+              "85F4.1"
+            ]
+          }
+        ]
+      },
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIRequiredDeviceCapabilities": [
+          "arm64"
+        ],
+        "NSFaceIDUsageDescription": "Redoubt uses Face ID only to unlock your local vault. Your biometric data never leaves the device.",
+        "NSPhotoLibraryUsageDescription": "Redoubt accesses your photo library only when you choose a photo to store inside your encrypted vault. Nothing is uploaded."
+      },
+      "buildNumber": "12"
+    },
+    "plugins": [
+      "./plugins/withUIScene.cjs",
+      "expo-secure-store",
+      "expo-local-authentication",
+      "expo-image-picker",
+      "expo-document-picker"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "5aa7f818-448b-4de7-aa45-94f94d116047"
+      }
+    },
+    "owner": "lm203688"
+  }
+}
