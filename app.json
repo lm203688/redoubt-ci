@@ -2,7 +2,7 @@
   "expo": {
     "name": "Redoubt",
     "slug": "redoubt-vault",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
@@ -50,7 +50,7 @@
         "NSFaceIDUsageDescription": "Redoubt uses Face ID only to unlock your local vault. Your biometric data never leaves the device.",
         "NSPhotoLibraryUsageDescription": "Redoubt accesses your photo library only when you choose a photo to store inside your encrypted vault. Nothing is uploaded."
       },
-      "buildNumber": "13"
+      "buildNumber": "14"
     },
     "plugins": [
     "./plugins/withAppIntents.cjs",
