@@ -53,6 +53,7 @@
       "buildNumber": "13"
     },
     "plugins": [
+    "./plugins/withAppIntents.cjs",
       "./plugins/withUIScene.cjs",
       "expo-secure-store",
       "expo-local-authentication",
