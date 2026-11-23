@@ -27,6 +27,7 @@ import {
 } from './src/platform/storage';
 import { pickPhoto, pickFile } from './src/platform/attachments';
 import { getRandomBytes } from 'expo-crypto';
+import FeedbackModal from './src/FeedbackModal';
 
 /**
  * Hermes 没有 globalThis.crypto.getRandomValues（也没有 subtle），
@@ -76,6 +77,7 @@ export default function App() {
   const [editor, setEditor] = useState<VaultItem | null>(null);
   const [revealSecrets, setRevealSecrets] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
 
   const refreshBoxes = useCallback(async () => {
     setBoxes(await listBoxes());
@@ -445,11 +447,13 @@ export default function App() {
               <Text style={S.h2}>Your controls</Text>
               <Text style={S.body}>Lock instantly · delete any item · erase everything · export an encrypted backup that only you can open · restore it as a new box on any device by hand.</Text>
               <Pressable onPress={eraseAll}><Text style={S.danger}>Erase everything on this device</Text></Pressable>
+              <Pressable onPress={() => setShowFeedback(true)} style={{ paddingVertical: 10 }}><Text style={S.link}>Send feedback</Text></Pressable>
               <Text style={S.foot}>v0.4 · Built offline, for offline. Full policy in App Store listing.</Text>
             </ScrollView>
           </SafeAreaView>
         </Modal>
       )}
+      <FeedbackModal visible={showFeedback} onClose={() => setShowFeedback(false)} context="privacy" />
     </SafeAreaView>
   );
 }
