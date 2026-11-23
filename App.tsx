@@ -29,6 +29,7 @@ import { pickPhoto, pickFile } from './src/platform/attachments';
 import { getRandomBytes } from 'expo-crypto';
 import FeedbackModal from './src/FeedbackModal';
 import { useDuo } from './src/duo';
+import AiAssist from './src/aiAssist';
 
 /**
  * Hermes 没有 globalThis.crypto.getRandomValues（也没有 subtle），
@@ -71,6 +72,7 @@ export default function App() {
   return (
     <View style={{ flex: 1, backgroundColor: C.bg, paddingRight: duo.gutter }}>
       <AppScreens />
+      <AiAssist app="Redoubt" hint="Encrypted offline vault hygiene: backups, passphrases, organizing a vault." gutter={duo.gutter} />
     </View>
   );
 }
