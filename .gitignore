@@ -1,0 +1,30 @@
+# 依赖（体积巨大，绝不提交；靠 package.json + package-lock.json 复现）
+node_modules/
+.expo/
+dist/
+web-build/
+
+# 本地构建产物与签名凭证（含密钥，绝不提交）
+*.ipa
+*.aab
+*.apk
+*.p8
+*.p12
+*.mobileprovision
+credentials.json
+
+# 环境变量与密钥
+.env
+.env.local
+.env.*.local
+
+# 编辑器 / 系统
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# 日志
+npm-debug.log*
+yarn-debug.log*
+*.log
