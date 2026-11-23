@@ -28,6 +28,7 @@ import {
 import { pickPhoto, pickFile } from './src/platform/attachments';
 import { getRandomBytes } from 'expo-crypto';
 import FeedbackModal from './src/FeedbackModal';
+import { useDuo } from './src/duo';
 
 /**
  * Hermes 没有 globalThis.crypto.getRandomValues（也没有 subtle），
@@ -66,6 +67,15 @@ function describeError(e: unknown): string {
 }
 
 export default function App() {
+  const duo = useDuo();
+  return (
+    <View style={{ flex: 1, backgroundColor: C.bg, paddingRight: duo.gutter }}>
+      <AppScreens />
+    </View>
+  );
+}
+
+function AppScreens() {
   const [screen, setScreen] = useState<Screen>('vaults');
   const [boxes, setBoxes] = useState<Array<{ id: string; name: string; meta: SealboxMeta }>>([]);
   const [activeId, setActiveId] = useState<string>('');
