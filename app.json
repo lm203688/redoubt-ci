@@ -50,7 +50,7 @@
         "NSFaceIDUsageDescription": "Redoubt uses Face ID only to unlock your local vault. Your biometric data never leaves the device.",
         "NSPhotoLibraryUsageDescription": "Redoubt accesses your photo library only when you choose a photo to store inside your encrypted vault. Nothing is uploaded."
       },
-      "buildNumber": "15",
+      "buildNumber": "16",
       "icon": "./assets/icon.png"
     },
     "plugins": [
