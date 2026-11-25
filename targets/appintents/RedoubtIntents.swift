@@ -6,12 +6,16 @@ import Foundation
 // 真正能在 Siri 里闭环的事：按分区直接进入、抄录恢复码时即时校验、评估口令熵。
 
 @available(iOS 16.0, *)
-struct VaultSectionEntity: AppEntity {
+struct VaultSectionEntity: AppEntity, IndexedEntity {
   static var typeDisplayRepresentation: TypeDisplayRepresentation = TypeDisplayRepresentation(name: "Vault section")
   static var defaultQuery = VaultSectionQuery()
 
   let id: String
-  let summary: String
+
+  // Spotlight shows this title when the user searches system-wide; the key is a
+  // CSSearchableItemAttributeSet field, not the entity's own property name.
+  @Property(indexingKey: \.displayName)
+  var summary: String
 
   var displayRepresentation: DisplayRepresentation {
     DisplayRepresentation(title: "\(summary)", subtitle: "\(id)")
